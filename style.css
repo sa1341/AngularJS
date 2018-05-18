@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.input-group .ng-valid.ng-dirty{
+	border: solid 1px green; 
+}
+.input-group .ng-invalid.ng-dirty{
+	border: solid 1px red; 
+}

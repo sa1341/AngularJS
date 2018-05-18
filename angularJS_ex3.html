@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script data-require="angularjs@1.6.4" data-semver="1.6.4" src="https://code.angularjs.org/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript" src="directives.js"></script>
+<script type="text/javascript" src="services.js"></script>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body ng-app="todo" ng-controller="TodoCtrl">
+	<!-- 이렇게 directive파일을 이용하면 긴 html파일을 모듈화 할수있고, directive 파일로 분리되어서 코드를
+	관리하기 용이해진다. -->
+	<div class="container">
+		<todo-title></todo-title>
+		
+		<!-- AngularJS에서 제공하는 폼을 사용하면 controller의 $scope -->
+		<todo-form></todo-form>
+
+		<!--$...은 angularJS에서 미리 정의된 키워드를  Json으로 출력한다. -->
+		<pre>{{todoForm | json}}</pre>
+	
+		<ul class="list-unstyled">
+			<li ng-repeat="todo in todos | filter:statusFilter">
+				<todo-item></todo-item>
+			</li>
+		</ul>
+	
+	<todo-filters></todo-filters>
+	</div>
+	
+</body>
+</html>
